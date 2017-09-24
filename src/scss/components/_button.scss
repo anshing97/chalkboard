@@ -1,0 +1,26 @@
+// Button
+//
+// Your standard button suitable for clicking.
+//
+// :hover   - Highlights when hovering.
+// .button--primary   - Do not press this big, shiny, blue button
+// .button--secondary   - Do not press this big, shiny, blue button
+//
+// Styleguide: ik12.components.buttons
+
+.button {
+    font-size: 14px;
+    padding: 10px 20px;
+    background: green;
+    &:hover {
+        opacity: 0.95;
+    }
+}
+
+.button--primary {
+    background: blue;
+}
+
+.button-secondary {
+    background: red;
+}
