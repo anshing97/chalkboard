@@ -2,16 +2,22 @@
 //
 // Your standard button suitable for clicking.
 //
-// :hover   - Highlights when hovering.
-// .button--primary   - Do not press this big, shiny, blue button
-// .button--secondary   - Do not press this big, shiny, blue button
+// .button--primary - a primary button
+// .button--secondary - a secondary button
 //
-// Styleguide: ik12.components.buttons
+// Markup:
+// <button class='button {{modifier_class}}'>Button</button>
+// <a href='#' class='button {{modifier_class}}'>Button</a>
+//
+// Styleguide 2
 
 .button {
+    display: inline-block;
     font-size: 14px;
     padding: 10px 20px;
     background: green;
+    color: white;
+    border: none;
     &:hover {
         opacity: 0.95;
     }

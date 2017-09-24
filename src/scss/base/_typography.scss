@@ -1,9 +1,12 @@
 // Typography
 //
-// .h1 - looks big
-// .h2 - looks a bit smaller
+// Markup:
+// <h1 class="{{modifier_class}}">A kinda heading</h1>
 //
-// Styleguide: ik12.base.typography
+// .h1 - 3rem
+// .h2 - 2rem
+//
+// Styleguide 1
 
 .h1 {
     font-size: 3rem;

@@ -1,0 +1,23 @@
+// Something!
+//
+// Your standard button suitable for clicking.
+//
+// .something--primary - a primary something
+// .something--secondary - a secondary something
+//
+// Markup:
+// <a class='something {{modifier_class}}'>Button</a>
+//
+// Styleguide 4
+
+.something {
+    color: red;
+}
+
+.something--primary {
+    color: blue;
+}
+
+.something-secondary {
+    color: red;
+}
