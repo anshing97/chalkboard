@@ -33,13 +33,13 @@ gulp.task('styleguide', function() {
     // The css and js paths are URLs, like '/misc/jquery.js'.
     // The following paths are relative to the generated style guide.
     css: [
-      '../css/chalkboard.css'
+      '../css/whiteboard.css'
     ],
     js: [
     ],
 
-    homepage: 'styleguide/home.md',
-    title: 'Chalkboard'
+    homepage: '../../src/styleguide/whiteboard.md',
+    title: 'Whiteboard'
   };
 
   return kss(options);
@@ -54,6 +54,7 @@ gulp.task('connect', function() {
 
 gulp.task('watch', function() {
   gulp.watch('src/scss/**/*.scss', ['sass','styleguide']);
+  gulp.watch('src/scss/**/*.html', ['styleguide']);
   gulp.watch('src/styleguide/**/*.hbs',['styleguide']);
 });
 

@@ -5,13 +5,18 @@
 //
 // .h1 - bigger
 // .h2 - slightly smaller
+// .paragraph - a regular paragraph
 //
 // Styleguide 1
 
 .h1 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 .h2 {
-    font-size: 2rem;
+  font-size: 2rem;
+}
+
+.paragraph {
+  font-size: 1rem;
 }

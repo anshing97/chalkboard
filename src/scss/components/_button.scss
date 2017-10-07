@@ -2,31 +2,104 @@
 //
 // Your standard button suitable for clicking.
 //
-// .button--primary - a primary button
-// .button--secondary - a secondary button
-//
 // Markup:
-// <button class='button {{modifier_class}}'>Button</button>
-// <a href='#' class='button {{modifier_class}}'>Button</a>
+// <button class='k12-button {{modifier_class}}'>Button label</button>
+// <a href='#!' class='k12-button {{modifier_class}}'>Button label</a>
+//
+// .k12-button--secondary - a secondary button, has borders
+// .k12-button--large - large button used to really grab attention!
+// .k12-button--reverse - reverses the color scheme
+// .k12-button--secondary-reverse - reverses the color scheme, secondary
 //
 // Styleguide 2
 
-.button {
-    display: inline-block;
-    font-size: 14px;
-    padding: 10px 20px;
-    background: green;
-    color: white;
-    border: none;
+
+@mixin k12-button-style($style: default) {
+  $all-button-styles: (
+    default: (
+      color: $k12-whiteout,
+      background: $k12-blue-bell,
+      hover-color: $k12-whiteout,
+      hover-background: $k12-dark-blue,
+    ),
+    secondary: (
+      color: $k12-blue-bell,
+      background: $k12-whiteout,
+      border: $k12-button-border-width solid $k12-blue-bell,
+      hover-color: $k12-blue-bell,
+      hover-background: $k12-blackboard-10,
+    ),
+    default-reverse: (
+      color: $k12-blue-bell,
+      background: $k12-whiteout,
+      hover-color: $k12-blue-bell,
+      hover-background: $k12-blackboard-10,
+    ),
+    secondary-reverse: (
+      color: $k12-whiteout,
+      background: $k12-blue-bell,
+      border: $k12-button-border-width solid $k12-whiteout,
+      hover-color: $k12-whiteout,
+      hover-background: $k12-dark-blue,
+    )
+  );
+
+  $button-style: map-get($all-button-styles, $style);
+  @if map-has-key($button-style, color) {
+    color: map-get($button-style, color);
+  }
+  @if map-has-key($button-style, background) {
+    background: map-get($button-style, background);
+  }
+  @if map-has-key($button-style, border) {
+    border: map-get($button-style, border);
+  }
+  @if map-has-key($button-style, hover-background) {
     &:hover {
-        opacity: 0.95;
+      background: map-get($button-style, hover-background);
     }
+  }
+  @if map-has-key($button-style, hover-color) {
+    &:hover {
+      color: map-get($button-style, hover-color);
+    }
+  }
+
 }
 
-.button--primary {
-    background: blue;
+.k12-button {
+  display: inline-block;
+  padding: $k12-button-padding;
+  border-radius: $k12-button-radius;
+  border: none;
+  font-size: $k12-button-font-size;
+  font-family: $k12-button-font-family;
+  font-weight: $k12-button-font-weight;
+  transition: background-color 0.2s linear;
+  cursor: pointer;
+  @include k12-button-style(default);
 }
 
-.button-secondary {
-    background: red;
+a.k12-button {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.k12-button--secondary {
+  @include k12-button-style(secondary);
+}
+
+
+.k12-button--reverse {
+  @include k12-button-style(default-reverse);
+}
+
+.k12-button--secondary-reverse {
+  @include k12-button-style(secondary-reverse);
+}
+
+.k12-button--large {
+  padding: $k12-button-padding-large;
 }

@@ -1,3 +1,0 @@
-# Chalkboard
-
-Our living styleguide
