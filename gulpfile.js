@@ -19,6 +19,13 @@ gulp.task('sass', function() {
 });
 
 
+gulp.task('kss-sass', function() {
+  return gulp.src('src/styleguide/builder/kss-assets/kss.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('public/css/custom/'));
+});
+
+
 gulp.task('styleguide', function() {
 
   var options = {
@@ -29,11 +36,19 @@ gulp.task('styleguide', function() {
 
     // just a custome builder
     builder: 'src/styleguide/builder/',
+    custom: [
+      'Colors',
+      'Icons',
+    ],
+    extend: [
+      'src/styleguide/helpers/'
+    ],
 
     // The css and js paths are URLs, like '/misc/jquery.js'.
     // The following paths are relative to the generated style guide.
     css: [
-      '../css/whiteboard.css'
+      '../css/whiteboard.css',
+      '../css/custom/kss.css'
     ],
     js: [
     ],
@@ -56,6 +71,7 @@ gulp.task('watch', function() {
   gulp.watch('src/scss/**/*.scss', ['sass','styleguide']);
   gulp.watch('src/scss/**/*.html', ['styleguide']);
   gulp.watch('src/styleguide/**/*.hbs',['styleguide']);
+  gulp.watch('src/styleguide/**/*.scss', ['kss-sass']);
 });
 
 
@@ -65,6 +81,7 @@ gulp.task('default', function() {
   sequence('clean',
            'sass',
            'styleguide',
+           'kss-sass',
            'connect',
            'watch');
 });
