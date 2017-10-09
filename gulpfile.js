@@ -39,6 +39,7 @@ gulp.task('styleguide', function() {
     custom: [
       'Colors',
       'Icons',
+      'Content',
     ],
     extend: [
       'src/styleguide/helpers/'
@@ -56,6 +57,10 @@ gulp.task('styleguide', function() {
     homepage: '../../src/styleguide/whiteboard.md',
     title: 'Whiteboard'
   };
+
+  kss.traverse(options.source, options).then(function(styleGuide){
+    console.log(styleGuide.toJSON());
+  });
 
   return kss(options);
 });

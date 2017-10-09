@@ -1,8 +1,6 @@
 module.exports = function (Handlebars) {
   'use strict';
 
-  console.log("icons ran");
-
   Handlebars.registerHelper('kssIcons', function (doc, block) {
     var output = [];
     var regex = /^(\S+)\s*:\s*(\S+)(?:\s*-\s*(.*))?$/gm;
