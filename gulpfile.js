@@ -58,10 +58,6 @@ gulp.task('styleguide', function() {
     title: 'Whiteboard'
   };
 
-  kss.traverse(options.source, options).then(function(styleGuide){
-    console.log(styleGuide.toJSON());
-  });
-
   return kss(options);
 });
 

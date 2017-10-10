@@ -1,3 +1,6 @@
+var marked = require('marked');
+var fs     = require('fs');
+
 module.exports = function (Handlebars) {
   'use strict';
 
@@ -6,9 +9,10 @@ module.exports = function (Handlebars) {
   Handlebars.registerHelper('kssContent', function (doc, block) {
 
     var output = [];
+    var content = fs.readFileSync(doc,'utf8');
 
     this.content = {};
-    this.content.html = '<h1>Hello there</h1>'
+    this.content.html = marked(content)
 
     output.push(block.fn(this));
 
