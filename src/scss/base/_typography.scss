@@ -1,21 +1,48 @@
-// Typography
-//
-// Markup:
-// <h1 class="{{modifier_class}}">A kinda heading</h1>
-//
-// .h1 - bigger
-// .h2 - slightly smaller
-// .paragraph - a regular paragraph
-//
-// Styleguide Styles.Typography
+/**
+ * Our base typography styles
+ *
+ * @section Typography
+ * @page Styles
+ */
 
-.h1 {
+/**
+ * @description Largest heading
+ * @class .heading-alpha
+ *
+ * @example
+ * <h1 class='heading-alpha'>Heading alpha</h1>
+ *
+ * @sectionof Typography
+ */
+
+
+.heading-alpha {
   font-size: 3rem;
 }
 
-.h2 {
+/**
+ * @description A smaller heading
+ * @class .heading-beta
+ *
+ * @example
+ * <h1 class='heading-beta'>Heading beta</h1>
+ *
+ * @sectionof Typography
+ */
+
+.heading-beta {
   font-size: 2rem;
 }
+
+/**
+ * @description A regular paragraph
+ * @class .paragraph
+ *
+ * @example
+ * <p class='paragraph'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+ *
+ * @sectionof Typography
+ */
 
 .paragraph {
   font-size: 1rem;

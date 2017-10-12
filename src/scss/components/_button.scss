@@ -1,32 +1,9 @@
-// Button
-
-// Your standard button suitable for clicking.
-
-// Markup:
-// <button class='k12-button {{modifier_class}}'>Button label</button>
-// <a href='#!' class='k12-button {{modifier_class}}'>Button label</a>
-
-// .k12-button--secondary - a secondary button, has borders
-// .k12-button--large - large button used to really grab attention!
-// .k12-button--reverse - reverses the color scheme - .blue
-// .k12-button--secondary-reverse - reverses the color scheme, secondary
-
-// Examples:
-// .k12-button--secondary.k12-button--large - a secondary button, has borders - <button class='k12-button k12-button--secondary k12-button--large'>Button label</button>
-// .k12-button--primary.k12-button--small - a secondary button, nothing - <button class='k12-button k12-button--primary k12-button--small'>Button label</button>
-
-// Styleguide Components.Button
-
 /**
- * A short description or lengthy explanation about the style. Will be parsed
- * using `markdown`.
+ * Our button is rounded and can have many different styles
  *
- * Descriptions can be multiple lines and end at the first encountered tag.
- * Tags can be in any order and can be multiple lines long as well.
  *
- * @section Section Name
- * @example
- * <div class="my-awesome-class">Example</div>
+ * @section Button
+ * @page Components
  */
 
 @mixin k12-button-style($style: default) {
@@ -79,8 +56,17 @@
       color: map-get($button-style, hover-color);
     }
   }
-
 }
+
+/**
+ * @description Our default button styles
+ *
+ * @example
+ * <button class="k12-button">Button label</button>
+ * <a href="#" class="k12-button">Button label</a>
+ *
+ * @sectionof Button
+ */
 
 .k12-button {
   display: inline-block;
@@ -102,18 +88,65 @@ a.k12-button {
   }
 }
 
+
+/**
+ * @description Secondary button styles
+ * @modifier .k12-button--secondary
+ *
+ * @example
+ * <button class="k12-button k12-button--secondary">Button label</button>
+ * <a href="#" class="k12-button k12-button--secondary">Button label</a>
+ *
+ * @sectionof Button
+ * @exampleContainerBlue true
+ */
+
+
 .k12-button--secondary {
   @include k12-button-style(secondary);
 }
 
+/**
+ * @description A reverse button styles
+ * @modifier .k12-button--reverse
+ *
+ * @example
+ * <button class="k12-button k12-button--reverse">Button label</button>
+ * <a href="#" class="k12-button k12-button--reverse">Button label</a>
+ *
+ * @sectionof Button
+ */
 
 .k12-button--reverse {
   @include k12-button-style(default-reverse);
 }
 
+/**
+ * @description A secondary reverse style
+ * @modifier .k12-button--secondary-reverse
+ *
+ * @example
+ * <button class="k12-button k12-button--secondary-reverse">Button label</button>
+ * <a href="#" class="k12-button k12-button--secondary-reverse">Button label</a>
+ *
+ * @sectionof Button
+ */
+
 .k12-button--secondary-reverse {
   @include k12-button-style(secondary-reverse);
 }
+
+
+/**
+ * @description A large button
+ * @modifier .k12-button--large
+ *
+ * @example
+ * <button class="k12-button k12-button--large">Button label</button>
+ * <a href="#" class="k12-button k12-button--large">Button label</a>
+ *
+ * @sectionof Button
+ */
 
 .k12-button--large {
   padding: $k12-button-padding-large;

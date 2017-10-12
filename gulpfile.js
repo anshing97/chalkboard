@@ -3,8 +3,9 @@ var gulp        = require('gulp'),
     connect     = require('gulp-connect'),
     sass        = require('gulp-sass'),
     livingcss   = require('gulp-livingcss'),
-    // kss         = require('kss'),
-    sequence    = require('run-sequence');
+    tap         = require('gulp-tap'),
+    sequence    = require('run-sequence'),
+    readFiles = require('read-vinyl-file-stream');
 
 gulp.task('clean', function () {
   return gulp.src('public', {read: false})
@@ -19,65 +20,23 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('public/css'));
 });
 
+// gulp.task('styleguide', function () {
+//   gulp.src('src/scss/**/*.scss')
+//     .pipe(livingcss('',{streamContext:true}))
+//     .pipe(readFiles(function (content, file, stream, cb) {
 
-gulp.task('kss-sass', function() {
-  return gulp.src('src/styleguide/builder/kss-assets/kss.scss')
-    .pipe(sass())
-    .pipe(gulp.dest('public/css/custom/'));
-});
+//       styleguide = JSON.parse(content);
+//       console.log(JSON.stringify(styleguide,null,4));
 
-
-// gulp.task('styleguide', function() {
-
-//   var options = {
-//     source: [
-//       'src/scss/',
-//     ],
-//     destination: 'public/styelguide/',
-
-//     // just a custome builder
-//     builder: 'src/styleguide/builder/',
-//     custom: [
-//       'Colors',
-//       'Content',
-//       'Examples',
-//     ],
-//     extend: [
-//       'src/styleguide/helpers/'
-//     ],
-
-//     // The css and js paths are URLs, like '/misc/jquery.js'.
-//     // The following paths are relative to the generated style guide.
-//     css: [
-//       '../css/whiteboard.css',
-//       '../css/custom/kss.css'
-//     ],
-//     js: [
-//     ],
-
-//     homepage: '../../src/styleguide/whiteboard.md',
-//     title: 'Whiteboard'
-//   };
-
-
-
-//   kss.traverse(options.source, options).then((styleguide)=>{
-//     styleguideJSON = styleguide.toJSON()
-//     styleguideJSON.sections.forEach((section)=>{
-//       section.modifiers.forEach((modifier)=>{
-//         console.log(modifier)
-//         if ( modifier.description.match(/[-]/) ) {
-//           var splits = modifier.description.split('-');
-//           modifier.description = splits[0];
-//           modifier.parentClass = splits[1];
-//         }
-//       })
-//     })
-
-//     console.log(JSON.stringify(styleguideJSON,null,4));
-//   })
-
+//     }))
+//     .pipe(gulp.dest('public/styleguide'))
 // });
+
+gulp.task('styleguide', function () {
+  gulp.src('public/css/whiteboard.css')
+    .pipe(livingcss())
+    .pipe(gulp.dest('public/styleguide'))
+});
 
 gulp.task('connect', function() {
   connect.server({
@@ -89,18 +48,13 @@ gulp.task('connect', function() {
 gulp.task('watch', function() {
   gulp.watch('src/scss/**/*.scss', ['sass','styleguide']);
   gulp.watch('src/scss/**/*.html', ['styleguide']);
-  gulp.watch('src/styleguide/**/*.hbs',['styleguide']);
-  gulp.watch('src/styleguide/**/*.scss', ['kss-sass']);
 });
-
-
 
 
 gulp.task('default', function() {
   sequence('clean',
            'sass',
-           // 'styleguide',
-           'kss-sass',
+           'styleguide',
            'connect',
            'watch');
 });

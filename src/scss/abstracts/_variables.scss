@@ -1,45 +1,56 @@
-/* ik12 colors */
+/**
+ * Sass Variables
+ *
+ * Descriptions can be multiple lines and end at the first encountered tag.
+ * Tags can be in any order and can be multiple lines long as well.
+ *
+ * @section Sass Variables
+ * @page Styles
+ */
 
-// Core Colors
-//
-// somsething osmeting omsething
-//
-// Colors:
-// teal         : #880000 - something something - $teal-me-a-joke - .parent
-// blackchalk   : #000000 - white white - $really-white
-// whiteboard   : #FFFFFF - balck hwite - $really-black
-//
-// Styleguide Styles.Colors
+/**
+ * @title Color vars
+ * @description Stff and Sass Variables and Sass Variables
+ *
+ * @color-variable {$k12-blue-bell} #4658AF - our default blue
+ * @color-variable {$k12-blue-bell} #4658AF - our default blue
+ * @color-variable {$k12-blue-bell} #4658AF - our default blue
+ *
+ * @sectionof Sass Variables
+ */
 
 $k12-blue-bell:       #4658AF;
 $k12-teal-me-a-joke:  #52D2BC;
 $k12-blackboard:      #2C2D3E;
 $k12-whiteout:        #FFFFFF;
 
-/* blue variants  */
+// blue variants
 $k12-dark-blue:       #3C4BA0;
 $k12-light-blue:      #7E99FC;
 $k12-text-blue:       #3E5BC7;
 
-/* gray variants */
+// gray variants
 $k12-blackboard-70:   #6B6C78;
 $k12-blackboard-50:   #95969E;
 $k12-blackboard-40:   #BFC0C5;
 $k12-blackboard-20:   #D5D5D8;
 $k12-blackboard-10:   #D5D5D8;
 
-/* teal variants */
+// teal variants
 $k12-dark-teal:       #1AA69F;
 $k12-light-teal:      #B2F1E6;
 
-// Variables
-//
-// Content:
-// src/scss/abstracts/variables.md
-//
-// Styleguide Overview.Variables
+/**
+ * @title button variables
+ * @description Sass Variables and Sass Variables and Sass Variables
+ *
+ * @sass-variable {$k12-blue-bell} #4658AF - our default blue
+ * @sass-variable {$k12-blue-bell} #4658AF - our default blue
+ * @sass-variable {$k12-blue-bell} #4658AF - our default blue
+ *
+ * @sectionof Sass Variables
+ */
 
-/* buttons */
 $k12-button-font-size:        16px;
 $k12-button-padding:          10px 50px;
 $k12-button-radius:           40px;
