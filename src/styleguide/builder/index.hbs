@@ -97,6 +97,11 @@
           {{/if}}
         </div>
 
+        {{#section 1.0}}
+          Hello
+        {{/section}}
+
+
         {{#if content}}
           {{#kssContent content}}
             {{{content.html}}}
@@ -108,6 +113,8 @@
             <div class="kss-modifier__heading kss-style">
               Example{{#if modifiers}}s{{/if}}
             </div>
+
+
 
             {{#if modifiers}}
               <div class="kss-modifier__default-name kss-style">
@@ -139,18 +146,13 @@
 
         {{/if}}
 
-        {{#if icons}}
-          <ul class="kss-icons">
-            {{#kssIcons icons}}
-              <li>
-                <div class="kss-icons__demo">{{icon.character}}</div>
-                <div class="kss-icons__info">
-                  <p><strong class="kss-icons__name">{{icon.name}}</strong>: <code class="kss-icons__char">{{icon.character}}</code></p>
-                  <p class="kss-icons__description">{{{icon.desc}}}</p>
-                </div>
-              </li>
-            {{/kssIcons}}
-          </ul>
+        {{#if samples}}
+          <div class="kss-modifier__wrapper">
+            With parent!!!
+            {{#kssSamples samples}}
+              {{ sample.name }} and {{ sample.description }} and {{ sample.markup }}
+            {{/kssSamples}}
+          </div>
         {{/if}}
 
         {{#if colors}}

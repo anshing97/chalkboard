@@ -1,18 +1,33 @@
 // Button
-//
+
 // Your standard button suitable for clicking.
-//
+
 // Markup:
 // <button class='k12-button {{modifier_class}}'>Button label</button>
 // <a href='#!' class='k12-button {{modifier_class}}'>Button label</a>
-//
+
 // .k12-button--secondary - a secondary button, has borders
 // .k12-button--large - large button used to really grab attention!
-// .k12-button--reverse - reverses the color scheme
+// .k12-button--reverse - reverses the color scheme - .blue
 // .k12-button--secondary-reverse - reverses the color scheme, secondary
-//
+
+// Examples:
+// .k12-button--secondary.k12-button--large - a secondary button, has borders - <button class='k12-button k12-button--secondary k12-button--large'>Button label</button>
+// .k12-button--primary.k12-button--small - a secondary button, nothing - <button class='k12-button k12-button--primary k12-button--small'>Button label</button>
+
 // Styleguide Components.Button
 
+/**
+ * A short description or lengthy explanation about the style. Will be parsed
+ * using `markdown`.
+ *
+ * Descriptions can be multiple lines and end at the first encountered tag.
+ * Tags can be in any order and can be multiple lines long as well.
+ *
+ * @section Section Name
+ * @example
+ * <div class="my-awesome-class">Example</div>
+ */
 
 @mixin k12-button-style($style: default) {
   $all-button-styles: (

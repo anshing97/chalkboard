@@ -80,6 +80,7 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
    *   `KssStyleGuide` object.
    */
   prepare(styleGuide) {
+
     // First call the prepare() of the parent KssBuilderBaseHandlebars class.
     // Since it returns a Promise, we do our prep work in a then().
     return super.prepare(styleGuide).then(styleGuide => {
@@ -133,5 +134,6 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
     });
   }
 }
+
 
 module.exports = KssBuilderHandlebars;

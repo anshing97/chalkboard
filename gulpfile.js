@@ -2,7 +2,8 @@ var gulp        = require('gulp'),
     clean       = require('gulp-clean'),
     connect     = require('gulp-connect'),
     sass        = require('gulp-sass'),
-    kss         = require('kss'),
+    livingcss   = require('gulp-livingcss'),
+    // kss         = require('kss'),
     sequence    = require('run-sequence');
 
 gulp.task('clean', function () {
@@ -26,40 +27,57 @@ gulp.task('kss-sass', function() {
 });
 
 
-gulp.task('styleguide', function() {
+// gulp.task('styleguide', function() {
 
-  var options = {
-    source: [
-      'src/scss/',
-    ],
-    destination: 'public/styelguide/',
+//   var options = {
+//     source: [
+//       'src/scss/',
+//     ],
+//     destination: 'public/styelguide/',
 
-    // just a custome builder
-    builder: 'src/styleguide/builder/',
-    custom: [
-      'Colors',
-      'Icons',
-      'Content',
-    ],
-    extend: [
-      'src/styleguide/helpers/'
-    ],
+//     // just a custome builder
+//     builder: 'src/styleguide/builder/',
+//     custom: [
+//       'Colors',
+//       'Content',
+//       'Examples',
+//     ],
+//     extend: [
+//       'src/styleguide/helpers/'
+//     ],
 
-    // The css and js paths are URLs, like '/misc/jquery.js'.
-    // The following paths are relative to the generated style guide.
-    css: [
-      '../css/whiteboard.css',
-      '../css/custom/kss.css'
-    ],
-    js: [
-    ],
+//     // The css and js paths are URLs, like '/misc/jquery.js'.
+//     // The following paths are relative to the generated style guide.
+//     css: [
+//       '../css/whiteboard.css',
+//       '../css/custom/kss.css'
+//     ],
+//     js: [
+//     ],
 
-    homepage: '../../src/styleguide/whiteboard.md',
-    title: 'Whiteboard'
-  };
+//     homepage: '../../src/styleguide/whiteboard.md',
+//     title: 'Whiteboard'
+//   };
 
-  return kss(options);
-});
+
+
+//   kss.traverse(options.source, options).then((styleguide)=>{
+//     styleguideJSON = styleguide.toJSON()
+//     styleguideJSON.sections.forEach((section)=>{
+//       section.modifiers.forEach((modifier)=>{
+//         console.log(modifier)
+//         if ( modifier.description.match(/[-]/) ) {
+//           var splits = modifier.description.split('-');
+//           modifier.description = splits[0];
+//           modifier.parentClass = splits[1];
+//         }
+//       })
+//     })
+
+//     console.log(JSON.stringify(styleguideJSON,null,4));
+//   })
+
+// });
 
 gulp.task('connect', function() {
   connect.server({
@@ -81,7 +99,7 @@ gulp.task('watch', function() {
 gulp.task('default', function() {
   sequence('clean',
            'sass',
-           'styleguide',
+           // 'styleguide',
            'kss-sass',
            'connect',
            'watch');
