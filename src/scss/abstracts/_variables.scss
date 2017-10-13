@@ -1,20 +1,18 @@
 /**
  * Sass Variables
  *
- * Descriptions can be multiple lines and end at the first encountered tag.
- * Tags can be in any order and can be multiple lines long as well.
- *
  * @section Sass Variables
  * @page Styles
  */
 
 /**
- * @title Color vars
- * @description Stff and Sass Variables and Sass Variables
+ * @title Button Variables
+ * @description What we used to build colors
  *
  * @color-variable {$k12-blue-bell} #4658AF - our default blue
- * @color-variable {$k12-blue-bell} #4658AF - our default blue
- * @color-variable {$k12-blue-bell} #4658AF - our default blue
+ * @color-variable {$k12-teal-me-a-joke} #52D2BC - our default teal
+ * @color-variable {$k12-blackboard} #2C2D3E - our default black
+ * @color-variable {$k12-whiteout} #FFFFFF - our default black
  *
  * @sectionof Sass Variables
  */
@@ -41,19 +39,19 @@ $k12-dark-teal:       #1AA69F;
 $k12-light-teal:      #B2F1E6;
 
 /**
- * @title button variables
- * @description Sass Variables and Sass Variables and Sass Variables
+ * @title Button Variables
+ * @description What we used to build our buttons
  *
- * @sass-variable {$k12-blue-bell} #4658AF - our default blue
- * @sass-variable {$k12-blue-bell} #4658AF - our default blue
- * @sass-variable {$k12-blue-bell} #4658AF - our default blue
+ * @sass-variable {$k12-button-font-size} 16px - our default blue
+ * @sass-variable {$k12-button-padding} 10px 50px - our default blue
+ * @sass-variable {$k12-button-radius} 99px - our default blue
  *
  * @sectionof Sass Variables
  */
 
 $k12-button-font-size:        16px;
 $k12-button-padding:          10px 50px;
-$k12-button-radius:           40px;
+$k12-button-radius:           99px;
 $k12-button-padding-large:    20px 70px;
 $k12-button-border-width:     3px;
 $k12-button-font-family:      'Poppins', sans-serif;
