@@ -6,6 +6,23 @@
  * @page Components
  */
 
+@mixin k12-button() {
+  display: inline-block;
+  padding: $k12-button-padding;
+  border-radius: $k12-button-radius;
+  border: none;
+  font-size: $k12-button-font-size;
+  font-family: $k12-button-font-family;
+  font-weight: $k12-button-font-weight;
+  transition: background-color 0.2s linear;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+  @include k12-button-style(default);
+}
+
 @mixin k12-button-style($style: default) {
   $all-button-styles: (
     default: (
@@ -14,20 +31,20 @@
       hover-color: $k12-whiteout,
       hover-background: $k12-dark-blue,
     ),
-    secondary: (
+    outlined: (
       color: $k12-blue-bell,
       background: $k12-whiteout,
       border: $k12-button-border-width solid $k12-blue-bell,
       hover-color: $k12-blue-bell,
       hover-background: $k12-blackboard-10,
     ),
-    default-reverse: (
+    reverse: (
       color: $k12-blue-bell,
       background: $k12-whiteout,
       hover-color: $k12-blue-bell,
       hover-background: $k12-blackboard-10,
     ),
-    secondary-reverse: (
+    outlined-reverse: (
       color: $k12-whiteout,
       background: $k12-blue-bell,
       border: $k12-button-border-width solid $k12-whiteout,
@@ -58,6 +75,10 @@
   }
 }
 
+@mixin k12-button-large-padding {
+  padding: $k12-button-padding-large;
+}
+
 /**
  * @description Our default button styles
  *
@@ -69,41 +90,26 @@
  */
 
 .k12-button {
-  display: inline-block;
-  padding: $k12-button-padding;
-  border-radius: $k12-button-radius;
-  border: none;
-  font-size: $k12-button-font-size;
-  font-family: $k12-button-font-family;
-  font-weight: $k12-button-font-weight;
-  transition: background-color 0.2s linear;
-  cursor: pointer;
-  @include k12-button-style(default);
+  @include k12-button()
 }
 
-a.k12-button {
-  text-decoration: none;
-  &:hover {
-    text-decoration: none;
-  }
-}
 
 
 /**
- * @description Secondary button styles
- * @modifier .k12-button--secondary
+ * @description Outlined button styles
+ * @modifier .k12-button--outlined
  *
  * @example
- * <button class="k12-button k12-button--secondary">Button label</button>
- * <a href="#" class="k12-button k12-button--secondary">Button label</a>
+ * <button class="k12-button k12-button--outlined">Button label</button>
+ * <a href="#" class="k12-button k12-button--outlined">Button label</a>
  *
  * @sectionof Button
  * @exampleContainerBlue true
  */
 
 
-.k12-button--secondary {
-  @include k12-button-style(secondary);
+.k12-button--outlined {
+  @include k12-button-style(outlined);
 }
 
 /**
@@ -118,22 +124,22 @@ a.k12-button {
  */
 
 .k12-button--reverse {
-  @include k12-button-style(default-reverse);
+  @include k12-button-style(reverse);
 }
 
 /**
- * @description A secondary reverse style
- * @modifier .k12-button--secondary-reverse
+ * @description A outlined reverse style
+ * @modifier .k12-button--outlined-reverse
  *
  * @example
- * <button class="k12-button k12-button--secondary-reverse">Button label</button>
- * <a href="#" class="k12-button k12-button--secondary-reverse">Button label</a>
+ * <button class="k12-button k12-button--outlined-reverse">Button label</button>
+ * <a href="#" class="k12-button k12-button--outlined-reverse">Button label</a>
  *
  * @sectionof Button
  */
 
-.k12-button--secondary-reverse {
-  @include k12-button-style(secondary-reverse);
+.k12-button--outlined-reverse {
+  @include k12-button-style(outlined-reverse);
 }
 
 
@@ -149,5 +155,5 @@ a.k12-button {
  */
 
 .k12-button--large {
-  padding: $k12-button-padding-large;
+  @include k12-button-large-padding;
 }
