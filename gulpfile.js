@@ -46,16 +46,8 @@ gulp.task('nunjucks', function () {
 
   return gulp.src('src/styleguide/templates/layout.html')
     .pipe(foreach(function(stream, file){
-      console.log(file.relative);
-      console.log('process one');
-      // loop through all the json array, each one represents a unique scenario
-      // so we want a new file for each
-
-      for ( var ii = 0; ii < cssData.allSections.length; ii++) {
-
-        let this_data = cssData.allSections[ii];
-        console.log(this_data);
-
+      for ( let ii = 0; ii < cssData.allSections.length; ii++) {
+        const this_data = cssData.allSections[ii];
         stream.pipe(clone())
           .pipe(data(this_data))
           .pipe(nunjucksRender(options.nunjucks))
